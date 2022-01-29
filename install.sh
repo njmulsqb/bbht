@@ -1,8 +1,11 @@
 #!/bin/bash
+:'This tool is fork of nahamsec/bbht modified by @njmulsqb'
+
+:'System update and upgrade'
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-
+:'Prerequisite tools and packages'
 sudo apt-get install -y libcurl4-openssl-dev
 sudo apt-get install -y libssl-dev
 sudo apt-get install -y jq
@@ -17,176 +20,212 @@ sudo apt-get install -y python-dnspython
 sudo apt-get install -y git
 sudo apt-get install -y rename
 sudo apt-get install -y xargs
-
-echo "installing bash_profile aliases from recon_profile"
-git clone https://github.com/nahamsec/recon_profile.git
-cd recon_profile
-cat bash_profile >> ~/.bash_profile
-source ~/.bash_profile
-cd ~/tools/
-echo "done"
+sudo apt install -y golang
+sudo apt install -y snapd
+sudo apt install -y awscli
 
 
 
-#install go
-if [[ -z "$GOPATH" ]];then
-echo "It looks like go is not installed, would you like to install it now"
-PS3="Please select an option : "
-choices=("yes" "no")
-select choice in "${choices[@]}"; do
-        case $choice in
-                yes)
-
-					echo "Installing Golang"
-					wget https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz
-					sudo tar -xvf go1.13.4.linux-amd64.tar.gz
-					sudo mv go /usr/local
-					export GOROOT=/usr/local/go
-					export GOPATH=$HOME/go
-					export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-					echo 'export GOROOT=/usr/local/go' >> ~/.bash_profile
-					echo 'export GOPATH=$HOME/go'	>> ~/.bash_profile			
-					echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' >> ~/.bash_profile	
-					source ~/.bash_profile
-					sleep 1
-					break
-					;;
-				no)
-					echo "Please install go and rerun this script"
-					echo "Aborting installation..."
-					exit 1
-					;;
-	esac	
-done
-fi
-
-
-#Don't forget to set up AWS credentials!
-echo "Don't forget to set up AWS credentials!"
-apt install -y awscli
-echo "Don't forget to set up AWS credentials!"
-
-
-
-#create a tools folder in ~/
+:'Create a tools folder in ~/'
 mkdir ~/tools
 cd ~/tools/
 
-#install aquatone
-echo "Installing Aquatone"
-go get github.com/michenriksen/aquatone
-echo "done"
 
-#install chromium
-echo "Installing Chromium"
-sudo snap install chromium
-echo "done"
+echo "Installing .bashrc aliases from Recon Aliases"
+git clone https://github.com/njmulsqb/Recon-Aliases
+cd Recon-Aliases
+cat .bashrc >> ~/.bashrc
+source ~/.bashrc
+cd ~/tools/
+echo "Done"
 
-echo "installing JSParser"
+
+:'***********Subdomain Enumeration Tools***********'
+echo "Installing Sublist3r"
+git clone https://github.com/aboul3la/Sublist3r.git
+cd Sublist3r*
+pip3 install -r requirements.txt
+cd ~/tools/
+echo "Done"
+
+echo "Installing Subfinder - Project Discovery"
+go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+echo "Done"
+
+echo "Installing Amass"
+sudo snap install amass
+echo "Done"
+
+echo "Installing OneForAll"
+git clone https://github.com/shmilylty/OneForAll.git
+cd OneForAll/
+python3 -m pip install -U pip setuptools wheel
+pip3 install -r requirements.txt
+cd ~/tools/
+echo "Done"
+
+echo "Installing Findomain"
+wget https://github.com/findomain/findomain/releases/latest/download/findomain-linux
+chmod +x findomain-linux
+echo "Done"
+
+echo "Installing Knock.py"
+git clone https://github.com/guelfoweb/knock.git
+echo "Done"
+
+echo "Installing Crobat"
+go install github.com/cgboal/sonarsearch/cmd/crobat@latest
+echo "Done"
+
+:'******** JavaScript Manipulation Tools ********'
+echo "Installing JSParser"
 git clone https://github.com/nahamsec/JSParser.git
 cd JSParser*
 sudo python setup.py install
 cd ~/tools/
-echo "done"
+echo "Done"
 
-echo "installing Sublist3r"
-git clone https://github.com/aboul3la/Sublist3r.git
-cd Sublist3r*
-pip install -r requirements.txt
+echo "Installing LinkFinder"
+git clone https://github.com/GerbenJavado/LinkFinder.git
+cd LinkFinder
+pip3 install -r requirements.txt
+python3 setup.py install
 cd ~/tools/
-echo "done"
+echo "Done"
+
+echo "Installing SubJS"
+go install github.com/lc/subjs@latest
+echo "Done"
+
+:'**************Screenshotting Tools*************'
+
+echo "Installing Aquatone"
+go install github.com/michenriksen/aquatone@latest
+echo "Done"
+
+echo "Install Webscreenshot.py"
+git clone https://github.com/maaaaz/webscreenshot/blob/master/webscreenshot.py
+echo "Done"
+
+echo "Installing EyeWitness"
+git clone https://github.com/FortyNorthSecurity/EyeWitness
+echo "Done"
+
+echo "Installing Chromium"
+sudo snap install chromium
+echo "Done"
+
+echo "Installing WebScreenshot"
+git clone https://github.com/maaaaz/webscreenshot
+echo "Done"
 
 
-echo "installing teh_s3_bucketeers"
+:'******** Misc Recon Tools *********'
+echo "Installing Gauplus"
+go install github.com/bp0lr/gauplus@latest
+echo "Done"
+
+echo "Installing Gau"
+go install github.com/lc/gau/v2/cmd/gau@latest
+echo "Done"
+
+:'********* Fuzzing Tools ********'
+echo "Installing ffuf"
+go install github.com/ffuf/ffuf@latest
+echo "Done"
+
+
+echo "Installing teh_s3_bucketeers"
 git clone https://github.com/tomdev/teh_s3_bucketeers.git
-cd ~/tools/
-echo "done"
+echo "Done"
 
 
-echo "installing wpscan"
+echo "Installing WPScan"
 git clone https://github.com/wpscanteam/wpscan.git
 cd wpscan*
 sudo gem install bundler && bundle install --without test
 cd ~/tools/
-echo "done"
+echo "Done"
 
-echo "installing dirsearch"
+echo "Installing Dirsearch"
 git clone https://github.com/maurosoria/dirsearch.git
-cd ~/tools/
-echo "done"
+echo "Done"
 
 
-echo "installing lazys3"
+echo "Installing Lazys3"
 git clone https://github.com/nahamsec/lazys3.git
-cd ~/tools/
-echo "done"
+echo "Done"
 
-echo "installing virtual host discovery"
+echo "Installing Virtual Host Discovery"
 git clone https://github.com/jobertabma/virtual-host-discovery.git
-cd ~/tools/
-echo "done"
+echo "Done"
 
 
-echo "installing sqlmap"
+echo "Installing SQLmap"
 git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap-dev
-cd ~/tools/
-echo "done"
+echo "Done"
 
-echo "installing knock.py"
-git clone https://github.com/guelfoweb/knock.git
-cd ~/tools/
-echo "done"
 
-echo "installing lazyrecon"
-git clone https://github.com/nahamsec/lazyrecon.git
-cd ~/tools/
-echo "done"
+echo "Installing Nmap"
+sudo apt install -y nmap
+echo "Done"
 
-echo "installing nmap"
-sudo apt-get install -y nmap
-echo "done"
-
-echo "installing massdns"
+echo "Installing Massdns"
 git clone https://github.com/blechschmidt/massdns.git
 cd ~/tools/massdns
 make
 cd ~/tools/
 echo "done"
 
-echo "installing asnlookup"
+echo "Installing ASNlookup"
 git clone https://github.com/yassineaboukir/asnlookup.git
 cd ~/tools/asnlookup
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 cd ~/tools/
 echo "done"
 
-echo "installing httprobe"
-go get -u github.com/tomnomnom/httprobe 
-echo "done"
+echo "Installing Unfurl"
+go install github.com/tomnomnom/unfurl@latest
+echo "Done"
 
-echo "installing unfurl"
-go get -u github.com/tomnomnom/unfurl 
-echo "done"
+echo "Installing Waybackurls"
+go install github.com/tomnomnom/waybackurls@latest
+echo "Done"
 
-echo "installing waybackurls"
-go get github.com/tomnomnom/waybackurls
-echo "done"
-
-echo "installing crtndstry"
+echo "Installing Crtndstry"
 git clone https://github.com/nahamsec/crtndstry.git
-echo "done"
+echo "Done"
 
-echo "downloading Seclists"
+echo "Downloading Seclists"
 cd ~/tools/
 git clone https://github.com/danielmiessler/SecLists.git
 cd ~/tools/SecLists/Discovery/DNS/
 ##THIS FILE BREAKS MASSDNS AND NEEDS TO BE CLEANED
 cat dns-Jhaddix.txt | head -n -14 > clean-jhaddix-dns.txt
 cd ~/tools/
-echo "done"
+echo "Done"
 
+echo "Downloading Nuclei Templates - Project Discovery"
+git clone https://github.com/projectdiscovery/nuclei-templates
+echo "Done"
 
+echo "Installing Nuclei - Project Discovery"
+go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+echo "Done"
+
+echo "Installing HTTPx - Project Discovery"
+go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+echo "Done"
+
+echo "Installing PureDNS"
+git clone https://github.com/blechschmidt/massdns.git
+cd massdns
+make
+sudo make install
+cd ~/tools/
+echo "Done"
 
 echo -e "\n\n\n\n\n\n\n\n\n\n\nDone! All tools are set up in ~/tools"
 ls -la
 echo "One last time: don't forget to set up AWS credentials in ~/.aws/!"
+echo "Set up config files for subfinder in ~/.config/subfinder/config.yaml, amass in ~/.config/amass"
