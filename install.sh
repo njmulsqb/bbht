@@ -1,11 +1,11 @@
 #!/bin/bash
-:'This tool is fork of nahamsec/bbht modified by @njmulsqb'
+#This tool is fork of nahamsec/bbht modified by @njmulsqb
 
-:'System update and upgrade'
+#System update and upgrade
 sudo apt-get -y update
 sudo apt-get -y upgrade
 
-:'Prerequisite tools and packages'
+#Prerequisite tools and packages
 sudo apt-get install -y libcurl4-openssl-dev
 sudo apt-get install -y libssl-dev
 sudo apt-get install -y jq
@@ -26,7 +26,7 @@ sudo apt install -y awscli
 
 
 
-:'Create a tools folder in ~/'
+#Create a tools folder in ~/
 mkdir ~/tools
 cd ~/tools/
 
@@ -40,7 +40,7 @@ cd ~/tools/
 echo "Done"
 
 
-:'***********Subdomain Enumeration Tools***********'
+#***********Subdomain Enumeration Tools***********
 echo "Installing Sublist3r"
 git clone https://github.com/aboul3la/Sublist3r.git
 cd Sublist3r*
@@ -77,7 +77,7 @@ echo "Installing Crobat"
 go install github.com/cgboal/sonarsearch/cmd/crobat@latest
 echo "Done"
 
-:'******** JavaScript Manipulation Tools ********'
+#******** JavaScript Manipulation Tools ********
 echo "Installing JSParser"
 git clone https://github.com/nahamsec/JSParser.git
 cd JSParser*
@@ -97,7 +97,7 @@ echo "Installing SubJS"
 go install github.com/lc/subjs@latest
 echo "Done"
 
-:'**************Screenshotting Tools*************'
+#**************Screenshotting Tools*************
 
 echo "Installing Aquatone"
 go install github.com/michenriksen/aquatone@latest
@@ -120,7 +120,7 @@ git clone https://github.com/maaaaz/webscreenshot
 echo "Done"
 
 
-:'******** Misc Recon Tools *********'
+#******** Misc Recon Tools *********
 echo "Installing Gauplus"
 go install github.com/bp0lr/gauplus@latest
 echo "Done"
@@ -129,7 +129,7 @@ echo "Installing Gau"
 go install github.com/lc/gau/v2/cmd/gau@latest
 echo "Done"
 
-:'********* Fuzzing Tools ********'
+#********* Fuzzing Tools ********
 echo "Installing ffuf"
 go install github.com/ffuf/ffuf@latest
 echo "Done"
