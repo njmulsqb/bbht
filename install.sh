@@ -135,13 +135,6 @@ git clone https://github.com/tomdev/teh_s3_bucketeers.git
 echo "Done"
 
 
-echo "Installing WPScan"
-git clone https://github.com/wpscanteam/wpscan.git
-cd wpscan*
-sudo gem install bundler && bundle install --without test
-cd ~/tools/
-echo "Done"
-
 echo "Installing Dirsearch"
 git clone https://github.com/maurosoria/dirsearch.git
 echo "Done"
