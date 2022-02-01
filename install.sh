@@ -6,7 +6,6 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 
 #Prerequisite tools and packages
-sudo apt-get install -y libcurl4-openssl-dev
 sudo apt-get install -y libssl-dev
 sudo apt-get install -y jq
 sudo apt-get install -y ruby-full
@@ -19,7 +18,6 @@ sudo apt-get install -y python-pip
 sudo apt-get install -y python-dnspython
 sudo apt-get install -y git
 sudo apt-get install -y rename
-sudo apt-get install -y xargs
 sudo apt install -y golang
 sudo apt install -y snapd
 sudo apt install -y awscli
@@ -89,7 +87,7 @@ echo "Installing LinkFinder"
 git clone https://github.com/GerbenJavado/LinkFinder.git
 cd LinkFinder
 pip3 install -r requirements.txt
-python3 setup.py install
+sudo python3 setup.py install
 cd ~/tools/
 echo "Done"
 
@@ -103,9 +101,6 @@ echo "Installing Aquatone"
 go install github.com/michenriksen/aquatone@latest
 echo "Done"
 
-echo "Install Webscreenshot.py"
-git clone https://github.com/maaaaz/webscreenshot/blob/master/webscreenshot.py
-echo "Done"
 
 echo "Installing EyeWitness"
 git clone https://github.com/FortyNorthSecurity/EyeWitness
