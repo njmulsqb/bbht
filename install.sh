@@ -144,6 +144,12 @@ echo "Installing Lazys3"
 git clone https://github.com/nahamsec/lazys3.git
 echo "Done"
 
+echo "Installing S3Scanner"
+pip3 install s3scanner
+echo "Done"
+
+
+
 echo "Installing Virtual Host Discovery"
 git clone https://github.com/jobertabma/virtual-host-discovery.git
 echo "Done"
