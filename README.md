@@ -42,3 +42,8 @@ https://github.com/njmulsqb/Recon-Aliases
 - cd bbht
 - chmod +x install.sh
 - ./install.sh
+
+
+# To Do
+- Replace pip installation of S3Scanner tool with source installation
+- Analyze https://github.com/amec0e/BBIS/blob/main/BBIS and see what additional things I can add into my bbht
