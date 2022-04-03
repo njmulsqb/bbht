@@ -48,3 +48,4 @@ https://github.com/njmulsqb/Recon-Aliases
 # To Do
 - Replace pip installation of S3Scanner tool with source installation
 - Analyze https://github.com/amec0e/BBIS/blob/main/BBIS and see what additional things I can add into my bbht
+- Snap is not available on WSL, so snap commands arent working there. Check its alternative
