@@ -219,6 +219,14 @@ sudo make install
 cd ~/tools/
 echo "Done"
 
+# Recon Frameworks
+echo "Installing reconFTW"
+git clone https://github.com/six2dez/reconftw.git
+cd reconftw/
+./install.sh
+cd ~/tools/
+echo "Done"
+
 echo -e "\n\n\n\n\n\n\n\n\n\n\nDone! All tools are set up in ~/tools"
 ls -la
 echo "One last time: don't forget to set up AWS credentials in ~/.aws/!"
