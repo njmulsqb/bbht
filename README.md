@@ -4,35 +4,34 @@ Bug Bounty Hunting Tools is a script to install the most popular tools used whil
 
 # Tools
 
+- Amass
+- Asnlookup
+- Crobat
 - dirsearch
+- EyeWitness
+- ffuf
+- Findomain
+- Httpx
 - JSParser
 - knockpy
 - lazys3
+- LinkFinder
+- Massdns
+- Naabu
+- Nuclei
+- OneForAll
+- PureDNS
 - recon_profile
+- reconFTW
+- Seclists collection
 - sqlmap-dev
+- Subfinder
 - Sublist3r
 - teh_s3_bucketeers
-- virtual-host-discovery
-- webscreenshot
-- Massdns
-- Asnlookup
 - Unfurl
+- virtual-host-discovery
 - Waybackurls
-- Httpx
-- Nuclei
-- Seclists collection
-- Amass
-- OneForAll
-- Subfinder
-- Findomain
-- LinkFinder
-- EyeWitness
 - Webscreenshot.py
-- ffuf
-- WebScreenshot
-- Crobat
-- PureDNS
-- reconFTW
 
 This script also grabs the aliases created and published here:
 https://github.com/njmulsqb/Recon-Aliases
