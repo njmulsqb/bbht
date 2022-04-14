@@ -123,6 +123,11 @@ echo "Installing Gau"
 go install github.com/lc/gau/v2/cmd/gau@latest
 echo "Done"
 
+echo "Installing Naabu"
+sudo apt install -y libpcap-dev
+go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
+echo "Done"
+
 #********* Fuzzing Tools ********
 echo "Installing ffuf"
 go install github.com/ffuf/ffuf@latest
