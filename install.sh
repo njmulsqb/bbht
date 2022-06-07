@@ -119,6 +119,10 @@ echo "Installing Gauplus"
 go install github.com/bp0lr/gauplus@latest
 echo "Done"
 
+echo "Installing Anew - Better version of tee :)"
+go install -v github.com/tomnomnom/anew@latest
+echo "Done"
+
 echo "Installing Gau"
 go install github.com/lc/gau/v2/cmd/gau@latest
 echo "Done"
