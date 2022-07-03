@@ -227,6 +227,13 @@ sudo make install
 cd ~/tools/
 echo "Done"
 
+echo "Installing Byp4xx"
+git clone https://github.com/lobuhi/byp4xx.git
+cd byp4xx
+chmod u+x byp4xx.py
+cd ~/tools/
+echo "Done"
+
 # Recon Frameworks
 echo "Installing reconFTW"
 git clone https://github.com/six2dez/reconftw.git
