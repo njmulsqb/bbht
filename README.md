@@ -7,6 +7,7 @@ Bug Bounty Hunting Tools is a script to install the most popular tools used whil
 - Amass
 - Asnlookup
 - Anew
+- Byp4xx
 - Crobat
 - dirsearch
 - EyeWitness
